@@ -5,7 +5,13 @@
 #define nao 0
 #define erro 99999
 TEST(LinhasTest, exemplo_comum) {
-    FILE *arquivo = fopen("exemplo_1.c", "r");
+    FILE *arquivo = fopen("exemplo_1.cpp", "r");
+    ASSERT_EQ(5, quantidade_linhas(arquivo));
+    fclose(arquivo);
+}
+
+TEST(LinhasTest, exemplo_linhas_vazias) {
+    FILE *arquivo = fopen("exemplo_2.cpp", "r");
     ASSERT_EQ(5, quantidade_linhas(arquivo));
     fclose(arquivo);
 }

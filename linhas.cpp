@@ -15,9 +15,15 @@ do
     {
     break;
     }
+    if(caractere != ' ' && caractere != '\n'){
+    only_spaces = nao;
+    }
     if(caractere == '\n')
     {
-    quantidade++;
+        if(only_spaces == nao){
+             quantidade++;       
+        }
+        only_spaces = sim;
     }
 }while(1);
 return quantidade;
