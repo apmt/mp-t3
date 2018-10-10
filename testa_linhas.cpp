@@ -2,16 +2,23 @@
 #include <gtest/gtest.h>
 #include "linhas.cpp"
 TEST(LinhasTest, exemplo_comum) {
-    FILE *arquivo_1 = fopen("exemplo_1.cpp", "r");
+    FILE *arquivo = fopen("exemplo_1.cpp", "r");
     ASSERT_EQ(5, quantidade_linhas(arquivo));
-    fclose(arquivo_1);
+    fclose(arquivo);
 }
 
 TEST(LinhasTest, exemplo_linhas_vazias) {
-    FILE *arquivo_2 = fopen("exemplo_2.cpp", "r");
+    FILE *arquivo = fopen("exemplo_2.cpp", "r");
     ASSERT_EQ(5, quantidade_linhas(arquivo));
-    fclose(arquivo_2);
+    fclose(arquivo);
 }
+
+TEST(LinhasTest, exemplo_comentarios_barrabarra) {
+    FILE *arquivo = fopen("exemplo_3.cpp", "r");
+    ASSERT_EQ(5, quantidade_linhas(arquivo));
+    fclose(arquivo);
+}
+
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
