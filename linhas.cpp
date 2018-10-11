@@ -15,8 +15,16 @@ do
     {
     break;
     }
-    if(caractere != ' ' && caractere != '\n'){
-    only_spaces = nao;
+    if(caractere == '/'){
+        fscanf(arquivo, "%c", &caractere);
+        if(caractere == '/' && only_spaces == sim){
+            while(caractere != '\n' && feof(arquivo)== 0){
+                fscanf(arquivo, "%c", &caractere);        
+            }
+        }
+    }
+    if(caractere != ' ' && caractere != '\n' && caractere != '\t'){
+        only_spaces = nao;
     }
     if(caractere == '\n')
     {
